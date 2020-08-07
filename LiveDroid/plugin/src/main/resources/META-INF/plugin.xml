@@ -1,0 +1,47 @@
+<idea-plugin>
+  <id>edu.ucr.cs.ufarooq.android.plugin</id>
+  <name>LiveDroid</name>
+  <vendor email="ufaro001@ucr.edu" url="http://cs.ucr.edu">UCR</vendor>
+
+  <description><![CDATA[
+      LiveDroid Plugin for Android Apps<br>
+      <em>This tool helps to save/restore user data</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      LiveDroid: first dev release<br>
+      <em> Depends on Static analysis tools, </em>
+    ]]>
+  </change-notes>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.java</depends>
+  <depends>com.intellij.modules.java</depends>
+<!--  <depends>com.intellij.modules.idea</depends>-->
+  <depends>org.jetbrains.android</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <group id="LiveDroidTool" text="LiveDroid" popup="true" description="LiveDroid Tools to analyze and fix apps">
+
+      <action class="edu.ucr.cs.ufarooq.liveDroid.actions.LiveDroidAppAction" id="applyAppLiveDroid" text="Apply LiveDroid on Application" description="Analyze and fix Application">
+        <keyboard-shortcut first-keystroke="control alt k" keymap="$default"/>
+      </action>
+      <action class="edu.ucr.cs.ufarooq.liveDroid.actions.LiveDroidActivityAction" id="applyActivityLiveDroid" text="Apply LiveDroid on Selected Activity" description="Analyze and fix Selected Activity">
+        <keyboard-shortcut first-keystroke="control alt a" keymap="$default"/>
+      </action>
+<!--      <action class="edu.ucr.cs.ufarooq.liveDroid.actions.LiveDroidAllFields" id="applySaveAllActivity" text="Save All Fields" description="Saves all Activity fields">-->
+<!--        <keyboard-shortcut first-keystroke="control alt b" keymap="$default"/>-->
+<!--      </action>-->
+      <add-to-group group-id="RefactoringMenu" anchor="first"/>
+
+    </group>
+  </actions>
+
+</idea-plugin>

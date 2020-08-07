@@ -1,0 +1,20 @@
+group project_group
+version project_version
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+
+wrapper {
+    distributionType = Wrapper.DistributionType.ALL
+}

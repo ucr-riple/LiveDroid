@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<AndroidViews>
+    <!-- Will always be save/restored-->
+    <UserEditable>
+        <view name="android.widget.EditText">
+            <attribute name="Text">
+                <!-- Any class can declare these-->
+                <setters>
+                    <setter signature="void setText(java.lang.CharSequence)" preferred="true"/>
+                </setters>
+                <getter signature="android.text.Editable getText()" toStringRequired="true"/>
+            </attribute>
+        </view>
+        <view name="android.widget.CompoundButton">
+            <attribute name="Checked">
+                <setters>
+                    <setter signature="void setChecked(boolean)" preferred="true"/>
+                </setters>
+                <getter signature="boolean isChecked()" toStringRequired="true"/>
+            </attribute>
+        </view>
+        <view name="android.widget.Switch">
+            <attribute name="Checked">
+                <setters>
+                    <setter signature="void setChecked(boolean)" preferred="true"/>
+                </setters>
+                <getter signature="boolean isChecked()" toStringRequired="true"/>
+            </attribute>
+        </view>
+        <view name="android.widget.ToggleButton">
+            <attribute name="Checked">
+                <setters>
+                    <setter signature="void setChecked(boolean)" preferred="true"/>
+                </setters>
+                <getter signature="boolean isChecked()" toStringRequired="true"/>
+            </attribute>
+        </view>
+        <view name="android.widget.RadioButton">
+            <attribute name="Checked">
+                <setters>
+                    <setter signature="void setChecked(boolean)" preferred="true"/>
+                </setters>
+                <getter signature="boolean isChecked()" toStringRequired="true"/>
+            </attribute>
+        </view>
+        <view name="android.widget.CheckBox">
+            <attribute name="Checked">
+                <setters>
+                    <setter signature="void setChecked(boolean)" preferred="true"/>
+                </setters>
+                <getter signature="boolean isChecked()" toStringRequired="true"/>
+            </attribute>
+        </view>
+        <view name="android.widget.CheckedTextView">
+            <attribute name="Checked">
+                <setters>
+                    <setter signature="void setChecked(boolean)" preferred="true"/>
+                </setters>
+                <getter signature="boolean isChecked()" toStringRequired="true"/>
+            </attribute>
+        </view>
+        <view name="android.widget.SeekBar">
+            <attribute name="Progress">
+                <setters>
+                    <setter signature="void setProgress(int)" preferred="true"/>
+                </setters>
+                <getter signature="int getProgress()" toStringRequired="true"/>
+            </attribute>
+        </view>
+        <view name="android.widget.AbsSeekBar">
+            <attribute name="Progress">
+                <setters>
+                    <setter signature="void setProgress(int)" preferred="true"/>
+                </setters>
+                <getter signature="int getProgress()" toStringRequired="true"/>
+            </attribute>
+        </view>
+        <view name="android.widget.RatingBar">
+            <attribute name="Progress">
+                <setters>
+                    <setter signature="void setProgress(int)" preferred="true"/>
+                </setters>
+                <getter signature="int getProgress()" toStringRequired="true"/>
+            </attribute>
+        </view>
+        <view name="android.widget.ScrollView">
+            <attribute name="ScrollY">
+                <setters>
+                    <setter signature="void setScrollY(int)" preferred="true"/>
+                </setters>
+                <getter signature="int getScrollY()" toStringRequired="true"/>
+            </attribute>
+        </view>
+        <view name="android.widget.ScrollView">
+            <attribute name="ScrollX">
+                <setters>
+                    <setter signature="void setScrollX(int)" preferred="true"/>
+                </setters>
+                <getter signature="int getScrollX()" toStringRequired="true"/>
+            </attribute>
+        </view>
+        <view name="android.widget.ListView">
+            <attribute name="Position">
+                <setters>
+                    <setter signature="void setSelection(int)" preferred="true"/>
+                </setters>
+                <getter signature="int getFirstVisiblePosition()" toStringRequired="true"/>
+            </attribute>
+        </view>
+    </UserEditable>
+    <!-- Statically Analyzed to save/restore-->
+    <APIEditable>
+        <view name="android.widget.TextView">
+            <attribute name="Text">
+                <!-- Only declaring class add these, e.g, Button can not add setText()-->
+                <setters>
+                    <setter signature="void setText(java.lang.CharSequence)" preferred="true"/>
+                    <setter signature="void setText(int)" preferred="false"/>
+                </setters>
+                <getter signature="java.lang.CharSequence getText()" toStringRequired="true"/>
+            </attribute>
+            <attribute name="TextColor">
+                <setters>
+                    <setter signature="void setTextColor(int)" preferred="true"/>
+                </setters>
+                <getter signature="int getCurrentTextColor()" toStringRequired="false"/>
+            </attribute>
+        </view>
+    </APIEditable>
+
+</AndroidViews>
+
+

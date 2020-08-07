@@ -1,0 +1,49 @@
+//buildscript {
+//
+//    ext.kotlin_version = '1.3.61'
+//
+//    repositories {
+//        mavenCentral()
+//    }
+//    dependencies {
+//        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+//    }
+//}
+
+
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.4.21'
+}
+
+group project_group
+version project_version
+
+apply plugin: 'java'
+//apply plugin: 'kotlin'
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url "https://www.jetbrains.com/intellij-repository/releases" }
+    maven { url "https://jetbrains.bintray.com/intellij-third-party-dependencies" }
+}
+
+dependencies {
+//    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    // 1. Use Guava in your implementation only:
+    implementation("com.google.guava:guava:29.0-jre")
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+    version '2019.3.3'
+//    version '2020.1.2'
+    plugins 'android', 'java'
+}
+patchPluginXml {
+    changeNotes """
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>"""
+}

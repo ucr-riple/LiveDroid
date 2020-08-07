@@ -1,0 +1,65 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'maven'
+    id 'maven-publish'
+    id 'signing'
+    id "com.github.johnrengelman.shadow" version "6.0.0"
+}
+
+group project_group
+version project_version
+
+sourceCompatibility = javaVersion
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+/*publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            afterEvaluate {
+                artifactId = jar.archiveBaseName
+            }
+        }
+    }
+    repositories {
+        maven {
+            mavenLocal()
+            def releasesRepoUrl = file("$buildDir/repos/releases")
+            def snapshotsRepoUrl = file("$buildDir/repos/snapshots")
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        }
+    }
+}*/
+repositories {
+    mavenCentral()
+    jcenter()
+    mavenLocal()
+
+    maven {
+        url "https://soot-build.cs.uni-paderborn.de/nexus/repository/soot-release/"
+    }
+}
+
+
+dependencies {
+    compile project(':analyzer')
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: commons_lang3_version
+    implementation group: 'commons-cli', name: 'commons-cli', version: commons_cli_version
+    implementation 'ca.mcgill.sable:soot:$soot_version:jar-with-dependencies@jar'
+    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.26'
+    implementation group: 'pxb.android', name: 'axml', version: axml_version
+    implementation group: 'heros', name: 'heros', version: heros_version
+    implementation group: 'de.tud.sse', name: 'soot-infoflow', version: infoflow_version
+    implementation group: 'de.tud.sse', name: 'soot-infoflow-android', version: infoflow_version
+    implementation group:'com.google.code.gson',name:'gson', version:gson_version
+    implementation 'de.fraunhofer.iem:PathExpression:1.0.0'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

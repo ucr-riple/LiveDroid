@@ -1,0 +1,4 @@
+rootProject.name = 'LiveDroid'
+include 'analyzer'
+include 'patcher'
+include 'plugin'
