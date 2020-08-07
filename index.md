@@ -53,6 +53,7 @@ If the analysis went well, it will generate following files under APK file direc
 - When analysis identify App States, it will place detailed xml file under ``out-NonEmpty``, other it will go under ``out-Empty``. 
 - Sample static analysis XML report file.
 ```xml
+
 <CriticalData>  
  <AccessPath length="3">  
 	 <Field class="com.example.umarfarooq.livedroidtest.MainActivity" index="0" name="a"  
@@ -70,6 +71,7 @@ If the analysis went well, it will generate following files under APK file direc
 	  setter="void setText(java.lang.CharSequence)" toString="true"/>  
  </View>
 </Views>
+
 ```
 
 ##### Ptaching Tool
