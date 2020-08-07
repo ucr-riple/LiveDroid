@@ -23,7 +23,9 @@ A tool to Identify and Preserve Mobile App State in Volatile Runtime Environment
 
 #### Configure (almost there!)
 We provide a ``config.properties``  under /LiveDroid-Patching.  Which points to tools inside the directory and some in Android SDK. Which looks like as:  *(Please, replace relative paths with absolute paths)*
+
 ```bash
+
 classLocation=../LiveDroid-Patching/gson-2.8.6.dex  
 outDirectory= /patch-out  
 signapkJar=../LiveDroid-Patching/tools/signapk.jar  
@@ -32,6 +34,7 @@ platformpk8=../LiveDroid-Patching/tools/platform.pk8
 keyStore=../LiveDroid-Patching/keystore.jks  
 zipalign=ANDROID_HOME/build-tools/27.0.0/zipalign  
 androidJar=ANDROID_HOME/platforms
+
 ```
 Here, one of the most important is *outDirectory*, where patched APK file will be produced.
 #### Build Basic Android App
