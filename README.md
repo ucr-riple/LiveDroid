@@ -64,7 +64,7 @@ If the analysis went well, it will generate following files under APK file direc
 </Views>
 ```
 
-##### Ptaching Tool
+##### Patching Tool
 You can use patching tool to generate patched APK based on static analysis results. Patching tool takes 3 paramters. 
 - A config.porperties discussed above.
 - An APK file which was used for static analyzer. 
@@ -76,7 +76,9 @@ java -cp "patcher/build/libs/patcher-1.0-SNAPSHOT-all.jar" edu.ucr.cs.ufarooq.an
 If sucessfull, this will generate a patched APK file inside ``outDirectory`` as configured in config.properties.
 ##### Plugin in IntelliJ
 *Note: For now please use IntelliJ Idea 2019.3.3 or run `` ./gradlew :plugin:runIde`` to run in sandbox mode.*
+
 You can install Plugin inside IntelliJ/Android Studio by going to plugin and "Install from Disk", browse .zip file generated under plugin.
 
 Open an Android App (e.g., LiveDroidTestApp), select an Activity class and select Menu "Refactor>LiveDroid>"Apply LiveDroid on Selected Activity". It will ask to select static analysis (XML) report, browse generated XML file and it will further ask to generate "getter/setter", "default constructor" if needed and generate the saving and restoring routines. 
+
 Note: if browse dialog does not appear please select class name and then select Menu options.
