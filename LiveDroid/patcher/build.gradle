@@ -41,8 +41,6 @@ publishing {
 repositories {
     mavenCentral()
     jcenter()
-    mavenLocal()
-
     maven {
         url "https://soot-build.cs.uni-paderborn.de/nexus/repository/soot-release/"
     }
