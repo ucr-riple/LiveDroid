@@ -11,7 +11,7 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
+# *.jar allow for gradle
 *.war
 *.nar
 *.ear
