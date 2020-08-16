@@ -31,17 +31,17 @@ jobs:
       run: cd LiveDroid && ./gradlew :analyzer:shadowJar
     - uses: actions/upload-artifact@v2
       with:
-        name: Package
+        name: LiveDroid-analyzer
         path: LiveDroid/analyzer/build/libs
     - name: Build Patcher with Gradle
       run: cd LiveDroid && ./gradlew :patcher:shadowJar
     - uses: actions/upload-artifact@v2
       with:
-        name: Package
+        name: LiveDroid-patcher
         path: LiveDroid/patcher/build/libs
     - name: Build the Plugin with Gradle
       run: cd LiveDroid && ./gradlew :plugin:buildPlugin
     - uses: actions/upload-artifact@v2
       with:
-        name: Package
+        name: LiveDroid-plugin
         path: LiveDroid/plugin/build/distributions/
