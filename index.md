@@ -10,9 +10,9 @@ A tool to Identify and Preserve Mobile App State in Volatile Runtime Environment
 - ``/LiveDroid-Patching`` contains config file and other helper tools for patching tool. 
 
 #### Prerequisites
-- Java installation and should be on path.
+- Java 1.8 installation and should be on path.
 - Android SDK installation, and set ``$ANDROID_HOME``  to Android SDK.
-- APKTool should be on path (required for patching tool).
+- APKTool should be on path (required for patching tool). Available at: https://ibotpeaches.github.io/Apktool/
 
 #### Compile
 - Clone this repo and move to LiveDroid source directory ``cd /LiveDroid``
