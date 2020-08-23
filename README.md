@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/ucr-riple/LiveDroid/workflows/Java%20CI%20with%20Gradle/badge.svg)](https://github.com/ucr-riple/LiveDroid/actions)
+[![Actions Status](https://github.com/ucr-riple/LiveDroid/workflows/Build/badge.svg)](https://github.com/ucr-riple/LiveDroid/actions)
 
 ## Getting Started
 #### Overview
