@@ -1,4 +1,5 @@
 [![Actions Status](https://github.com/ucr-riple/LiveDroid/workflows/Build/badge.svg)](https://github.com/ucr-riple/LiveDroid/actions)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4032198.svg)](https://doi.org/10.5281/zenodo.4032198)
 
 ## Getting Started
 #### Overview
