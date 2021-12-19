@@ -10,7 +10,7 @@ import soot.*;
 import soot.jimple.infoflow.AbstractInfoflow;
 import soot.jimple.infoflow.android.InfoflowAndroidConfiguration;
 import soot.jimple.infoflow.android.callbacks.AbstractCallbackAnalyzer;
-import soot.jimple.infoflow.android.callbacks.CallbackDefinition;
+import soot.jimple.infoflow.android.callbacks.AndroidCallbackDefinition;
 import soot.jimple.infoflow.android.callbacks.DefaultCallbackAnalyzer;
 import soot.jimple.infoflow.android.callbacks.FastCallbackAnalyzer;
 import soot.jimple.infoflow.android.callbacks.filters.AlienFragmentFilter;
@@ -44,7 +44,7 @@ public class EntryPointsCreator {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    protected MultiMap<SootClass, CallbackDefinition> callbackMethods = new HashMultiMap<>();
+    protected MultiMap<SootClass, AndroidCallbackDefinition> callbackMethods = new HashMultiMap<>();
     protected MultiMap<SootClass, SootClass> fragmentClasses = new HashMultiMap<>();
 
     protected InfoflowAndroidConfiguration config = new InfoflowAndroidConfiguration();
@@ -419,17 +419,17 @@ public class EntryPointsCreator {
         if (component == null) {
             // Get all callbacks for all components
             for (SootClass sc : this.callbackMethods.keySet()) {
-                Set<CallbackDefinition> callbackDefs = this.callbackMethods.get(sc);
+                Set<AndroidCallbackDefinition> callbackDefs = this.callbackMethods.get(sc);
                 if (callbackDefs != null)
-                    for (CallbackDefinition cd : callbackDefs)
+                    for (AndroidCallbackDefinition cd : callbackDefs)
                         callbackMethodSigs.put(sc, cd.getTargetMethod());
             }
         } else {
             // Get the callbacks for the current component only
             for (SootClass sc : components) {
-                Set<CallbackDefinition> callbackDefs = this.callbackMethods.get(sc);
+                Set<AndroidCallbackDefinition> callbackDefs = this.callbackMethods.get(sc);
                 if (callbackDefs != null)
-                    for (CallbackDefinition cd : callbackDefs)
+                    for (AndroidCallbackDefinition cd : callbackDefs)
                         callbackMethodSigs.put(sc, cd.getTargetMethod());
             }
         }
@@ -846,8 +846,8 @@ public class EntryPointsCreator {
         // the host activity
         AlienFragmentFilter fragmentFilter = new AlienFragmentFilter(invertMap(fragmentClasses));
         fragmentFilter.reset();
-        for (Iterator<Pair<SootClass, CallbackDefinition>> cbIt = this.callbackMethods.iterator(); cbIt.hasNext(); ) {
-            Pair<SootClass, CallbackDefinition> pair = cbIt.next();
+        for (Iterator<Pair<SootClass, AndroidCallbackDefinition>> cbIt = this.callbackMethods.iterator(); cbIt.hasNext(); ) {
+            Pair<SootClass, AndroidCallbackDefinition> pair = cbIt.next();
 
             // Check whether the filter accepts the given mapping
             if (!fragmentFilter.accepts(pair.getO1(), pair.getO2().getTargetMethod()))
@@ -921,7 +921,7 @@ public class EntryPointsCreator {
                                 SootMethod callbackMethod = currentClass.getMethodUnsafe(subSig);
                                 if (callbackMethod != null) {
                                     if (this.callbackMethods.put(callbackClass,
-                                            new CallbackDefinition(callbackMethod, smViewOnClick, CallbackDefinition.CallbackType.Widget)))
+                                            new AndroidCallbackDefinition(callbackMethod, smViewOnClick, AndroidCallbackDefinition.CallbackType.Widget)))
                                         hasNewCallback = true;
                                     break;
                                 }
@@ -949,7 +949,7 @@ public class EntryPointsCreator {
                     ViewControlProvider.getInstance().insert(classId, controls);
                     if (controls != null) {
                         for (AndroidLayoutControl lc : controls)
-                            if (!SystemClassHandler.isClassInSystemPackage(lc.getViewClass().getName()))
+                            if (!SystemClassHandler.v().isClassInSystemPackage(lc.getViewClass().getName()))
                                 registerCallbackMethodsForView(callbackClass, lc);
                     }
                 } else
@@ -978,7 +978,7 @@ public class EntryPointsCreator {
      */
     private void registerCallbackMethodsForView(SootClass callbackClass, AndroidLayoutControl lc) {
         // Ignore system classes
-        if (SystemClassHandler.isClassInSystemPackage(callbackClass.getName()))
+        if (SystemClassHandler.v().isClassInSystemPackage(callbackClass.getName()))
             return;
 
         // Get common Android classes
@@ -1009,7 +1009,7 @@ public class EntryPointsCreator {
                 if (parentMethod != null)
                     // This is a real callback method
                     this.callbackMethods.put(callbackClass,
-                            new CallbackDefinition(sm, parentMethod, CallbackDefinition.CallbackType.Widget));
+                            new AndroidCallbackDefinition(sm, parentMethod, AndroidCallbackDefinition.CallbackType.Widget));
             }
         }
     }

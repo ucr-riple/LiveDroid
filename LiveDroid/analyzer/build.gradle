@@ -44,19 +44,26 @@ repositories {
     maven {
         url "https://soot-build.cs.uni-paderborn.de/nexus/repository/soot-release/"
     }
+    maven {
+        url "https://soot-build.cs.uni-paderborn.de/nexus/repository/soot-snapshot/"
+    }
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+    }
 }
 
 
 dependencies {
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: commons_lang3_version
     implementation group: 'commons-cli', name: 'commons-cli', version: commons_cli_version
-    implementation 'ca.mcgill.sable:soot:$soot_version:jar-with-dependencies@jar'
-    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.26'
+    //implementation 'ca.mcgill.sable:soot:$soot_version:jar-with-dependencies@jar'
+    implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.26'
     implementation group: 'pxb.android', name: 'axml', version: axml_version
     implementation group: 'heros', name: 'heros', version: heros_version
     implementation group: 'de.tud.sse', name: 'soot-infoflow', version: infoflow_version
     implementation group: 'de.tud.sse', name: 'soot-infoflow-android', version: infoflow_version
     implementation group:'com.google.code.gson',name:'gson', version:gson_version
     implementation 'de.fraunhofer.iem:PathExpression:1.0.0'
+    implementation("com.google.guava:guava:31.0.1-jre")
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
